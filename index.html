@@ -11,7 +11,6 @@
       text-align: center;
       overflow: hidden;
     }
-
     .logo-container {
       display: flex;
       justify-content: center;
@@ -19,7 +18,6 @@
       margin-top: 50px;
       cursor: pointer;
     }
-
     .logo-container img {
       width: 300px;
       height: auto;
@@ -27,18 +25,15 @@
       box-shadow: 0 0 25px #ff69b4;
       transition: transform 0.3s ease;
     }
-
     .logo-container img:hover {
       transform: scale(1.05);
     }
-
     .message {
       display: none;
       font-size: 20px;
       color: #d9006c;
       margin: 30px;
     }
-
     canvas {
       position: fixed;
       top: 0;
@@ -46,7 +41,6 @@
       pointer-events: none;
       z-index: 999;
     }
-
     #slideshow {
       position: fixed;
       top: 0;
@@ -59,7 +53,6 @@
       align-items: center;
       z-index: 9999;
     }
-
     #slideshow img {
       max-width: 90%;
       max-height: 90%;
@@ -70,21 +63,13 @@
   </style>
 </head>
 <body>
-
-  <!-- Logo -->
   <div class="logo-container" id="logoClick">
     <img src="ptt.png" alt="Ayeisha Logo">
   </div>
-
-  <!-- View Memories Link -->
-  <a href="#" id="viewMemories" style="display:block; margin-top:20px; color:#d9006c; font-weight:bold;">📸 View Memories</a>
-
-  <!-- Slideshow -->
+  <a href="#" id="viewMemories" style="display:none; margin-top:20px; color:#d9006c; font-weight:bold;">📸 View Memories</a>
   <div id="slideshow">
     <img id="slideImg" src="1.jpg" alt="Slideshow Photo">
   </div>
-
-  <!-- Birthday Message -->
   <div class="message" id="message">
     🎉 <strong>Happy Birthday To You 💖</strong> 🎉<br>
     💖 On this special day, I just want to say...<br>
@@ -92,13 +77,8 @@
     May your day be filled with love, laughter, and magical moments.<br>
     🥳 You deserve all the happiness in the world. Love you always! 💝
   </div>
-
-  <!-- Audio -->
   <audio id="birthdaySong" src="happy.mp3"></audio>
-
-  <!-- Confetti -->
   <canvas id="confettiCanvas"></canvas>
-
   <script>
     const logo = document.getElementById('logoClick');
     const msg = document.getElementById('message');
@@ -125,7 +105,6 @@
       index = 0;
       slideshow.style.display = 'flex';
       showSlide(index);
-
       interval = setInterval(() => {
         index++;
         if (index >= photos.length) {
@@ -150,7 +129,6 @@
       song.currentTime = 0;
     });
 
-    // Confetti logic
     let confetti = [];
     const colors = ["#ff007f", "#ffcc00", "#00e6e6", "#00cc66", "#ff5050"];
 
@@ -186,6 +164,7 @@
 
     logo.addEventListener('click', () => {
       msg.style.display = 'block';
+      viewLink.style.display = 'block';
       song.play();
       createConfetti();
       drawConfetti();
